@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux.hdl
+
+/** 
+ * Multiplexor:
+ * out = a if sel == 0
+ *       b otherwise
+ */
+
+CHIP eightonemux {
+    IN Se0, Se1, Se2, D0, D1, D2, D3, D4, D5, D6, D7;
+    OUT out;
+
+    PARTS:
+         Not(in=
+}

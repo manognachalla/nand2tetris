@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux.hdl
+
+/** 
+ * Multiplexor:
+ * out = a if sel == 0
+ *       b otherwise
+ */
+
+CHIP eightonemuxn {
+    IN Se0, Se1, Se2, D0, D1, D2, D3, D4, D5, D6, D7;
+    OUT out;
+
+    PARTS:
+          fouronemux(I0=D0, I1=D1, I2=D2, I3=D3, S0=Se0, S1=Se1, Y=Y0);
+          fouronemux(I0=D4, I1=D5, I2=D6, I3=D7, S0=Se0, S1=Se1, Y=Y1);
+          mux(I0=Y0, I1=Y1, S0=Se2, Y=out);
+}

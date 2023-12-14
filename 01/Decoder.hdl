@@ -1,0 +1,24 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And.hdl
+
+/**
+ * And gate: 
+ * out = 1 if (a == 1 and b == 1)
+ *       0 otherwise
+ */
+// 2 TO 4 DECODER
+
+CHIP Decoder {
+        IN D0,D1, G;;
+        OUT f0, f1, f2, f3;
+        PARTS:
+        Not(in=D0, out=nD0);
+        Not(in=D1, out=nD1);
+        Not(in=G, out=nG);
+        And3input(a=nD0, b=nD1, c=nG, out=f0);
+        And3input(a=D0, b=nD1, c=nG, out=f1);
+        And3input(a=nD0, b=D1, c=nG, out=f2);
+        And3input(a=D0, b=D1, c=nG, out=f3);
+}
